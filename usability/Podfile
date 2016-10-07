@@ -1,0 +1,24 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'usability' do
+  # Comment this line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  pod 'UXCam'
+  pod 'MBProgressHUD', '~> 1.0'
+  pod 'IQKeyboardManager', '~> 4.0'
+
+  # Pods for usability
+
+  target 'usabilityTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'usabilityUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

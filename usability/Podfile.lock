@@ -1,0 +1,18 @@
+PODS:
+  - IQKeyboardManager (4.0.6)
+  - MBProgressHUD (1.0.0)
+  - UXCam (2.5.6)
+
+DEPENDENCIES:
+  - IQKeyboardManager (~> 4.0)
+  - MBProgressHUD (~> 1.0)
+  - UXCam
+
+SPEC CHECKSUMS:
+  IQKeyboardManager: c52debb1967799ae7addb98eab0cf328083a874f
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  UXCam: 15bfeb6763c26dc377a77bdb4af4e3ca292d7aca
+
+PODFILE CHECKSUM: 2d85b6afc6db93935d4fd26945e5e3f1f2a50a66
+
+COCOAPODS: 1.0.1
