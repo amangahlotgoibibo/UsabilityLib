@@ -14,27 +14,42 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var projectTableView: UITableView!
     var projectArray: [String] = []
     
+    //MARK:- View Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        doInitialConfigurations()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+      
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadProjectTableViewWithDataFromNotification), name: NSNotification.Name(rawValue: "ProjectDataReloaded"), object: nil)
         
-        FirebaseHandler.sharedInstance.ref.observeSingleEvent(of: .value, with: { (snapshot) in
-            let value = snapshot.value as? NSDictionary
-            print(value)
-            let links = value?["links"] as? NSArray
+    }
+    
+    //MARK:- Private Methods
+    
+    func doInitialConfigurations() {
         
-            for iterator in links! {
-                print(iterator)
-                let i = iterator as? NSDictionary
-                self.projectArray.append(i?.value(forKey: "k") as! String)
-            }
-            
-            self.projectTableView.reloadData()
-        })
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        reloadProjectTableViewWithDataFromNotification()
+    }
+    
+    func reloadProjectTableViewWithDataFromNotification() {
+        
+        projectArray.removeAll()
+        
+        let links = UserDefaults.standard.value(forKey: "links") as! [NSDictionary]
+        
+        for iterator in links {
+        
+            print(iterator)
+            let i = iterator
+            self.projectArray.append(i.value(forKey: "k") as! String)
+        }
+        projectTableView.reloadData()
+        
     }
     
     //MARK:- Table View Delegate Methods
@@ -66,8 +81,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             webViewVC.URL = iteration?.value(forKey: "v") as! String
             webViewVC.loadContentToWebView()
         })
-        
-        
+
         UXCam.start(withKey: "42b96e22c4dd82d")
         self.navigationController?.pushViewController(webViewVC, animated: true)
     }

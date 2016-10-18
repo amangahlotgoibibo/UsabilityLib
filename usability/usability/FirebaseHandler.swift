@@ -12,29 +12,24 @@ import Firebase
 class FirebaseHandler: NSObject {
     
     var ref : FIRDatabaseReference! = FIRDatabase.database().reference()
-    var projectElementArray: [String] = []
-    
     static let sharedInstance: FirebaseHandler = FirebaseHandler()
+
     
-    override init() {
-//        ref = FIRDatabase.database().reference()
+    func reloadProjectTableData() {
         
+        ref.observe(.value, with: { (snapshot) in
+            
+            let value = snapshot.value as? NSDictionary
+            let linkArray = value?["links"] as? NSArray
+            
+            UserDefaults.standard.setValue(linkArray, forKey: "links")
+
+            let notif = Notification(name: NSNotification.Name(rawValue: "ProjectDataReloaded"))
+            NotificationCenter.default.post(notif)
+
+            
+        })
     }
-    
-//    func reloadProjectTableData() {
-//        FirebaseHandler.sharedInstance.ref.observeSingleEvent(of: .value, with: { (snapshot) in
-//            let value = snapshot.value as? NSDictionary
-//            print(value)
-//            let links = value?["links"] as? NSArray
-//            
-//            for iterator in links! {
-//                print(iterator)
-//                let i = iterator as? NSDictionary
-//                self.projectElementArray.append(i?.value(forKey: "k") as! String)
-//            }
-//        })
-//        
-//    }
     
     
 }
