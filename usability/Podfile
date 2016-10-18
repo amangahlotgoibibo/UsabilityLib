@@ -8,7 +8,9 @@ target 'usability' do
   pod 'UXCam'
   pod 'MBProgressHUD', '~> 1.0'
   pod 'IQKeyboardManager', '~> 4.0'
-
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'Firebase/Auth'
   # Pods for usability
 
   target 'usabilityTests' do

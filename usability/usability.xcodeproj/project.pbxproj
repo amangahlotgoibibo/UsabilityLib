@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		68BAD29F9FC3FDDA0A424EFA /* Pods_usability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5DDEA645143B137EF4CED3F /* Pods_usability.framework */; };
+		923F3ACD1DB4E51E004C681C /* FirebaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F3ACC1DB4E51E004C681C /* FirebaseHandler.swift */; };
 		92800AFC1DA7829B00F279AA /* RecordingInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92800AFB1DA7829B00F279AA /* RecordingInfoViewController.swift */; };
+		928765C51DB4A2E900EC8B71 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 928765C41DB4A2E900EC8B71 /* GoogleService-Info.plist */; };
 		92BB1AEB1D9D18BA0031D087 /* CoachMarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BB1AEA1D9D18BA0031D087 /* CoachMarkViewController.swift */; };
 		92C62CC61D9BE1490020516F /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C62CC51D9BE1490020516F /* ReviewViewController.swift */; };
 		92F648781D9BD81100A2ABDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F648771D9BD81100A2ABDA /* AppDelegate.swift */; };
@@ -48,7 +50,9 @@
 		4778C0C970B84B47D27D29F4 /* Pods-usabilityTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-usabilityTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-usabilityTests/Pods-usabilityTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6781C4C6AF33EC50C64FDE57 /* Pods-usabilityUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-usabilityUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-usabilityUITests/Pods-usabilityUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7BC68A622C0ABA4A1B6ADDAB /* Pods-usabilityUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-usabilityUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-usabilityUITests/Pods-usabilityUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		923F3ACC1DB4E51E004C681C /* FirebaseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseHandler.swift; sourceTree = "<group>"; };
 		92800AFB1DA7829B00F279AA /* RecordingInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingInfoViewController.swift; sourceTree = "<group>"; };
+		928765C41DB4A2E900EC8B71 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		92BB1AEA1D9D18BA0031D087 /* CoachMarkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoachMarkViewController.swift; sourceTree = "<group>"; };
 		92C62CC51D9BE1490020516F /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		92F648741D9BD81100A2ABDA /* usability.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = usability.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				92F648771D9BD81100A2ABDA /* AppDelegate.swift */,
+				923F3ACC1DB4E51E004C681C /* FirebaseHandler.swift */,
 				92F648791D9BD81100A2ABDA /* ViewController.swift */,
 				92F648A81D9BDD2800A2ABDA /* ProjectWebViewViewController.swift */,
 				92BB1AEA1D9D18BA0031D087 /* CoachMarkViewController.swift */,
@@ -133,6 +138,7 @@
 				92F6487B1D9BD81100A2ABDA /* Main.storyboard */,
 				92F648811D9BD81100A2ABDA /* Assets.xcassets */,
 				92F648831D9BD81100A2ABDA /* LaunchScreen.storyboard */,
+				928765C41DB4A2E900EC8B71 /* GoogleService-Info.plist */,
 				92F648861D9BD81100A2ABDA /* Info.plist */,
 				92F6487E1D9BD81100A2ABDA /* usability.xcdatamodeld */,
 			);
@@ -297,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92F648851D9BD81100A2ABDA /* LaunchScreen.storyboard in Resources */,
+				928765C51DB4A2E900EC8B71 /* GoogleService-Info.plist in Resources */,
 				92F648821D9BD81100A2ABDA /* Assets.xcassets in Resources */,
 				92F6487D1D9BD81100A2ABDA /* Main.storyboard in Resources */,
 			);
@@ -453,6 +460,7 @@
 				92C62CC61D9BE1490020516F /* ReviewViewController.swift in Sources */,
 				92F648801D9BD81100A2ABDA /* usability.xcdatamodeld in Sources */,
 				92F648781D9BD81100A2ABDA /* AppDelegate.swift in Sources */,
+				923F3ACD1DB4E51E004C681C /* FirebaseHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,8 +536,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: GOIBIBO IBIBO (8VGTFC7BML)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: GOIBIBO IBIBO (8VGTFC7BML)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Aman Gahlot (7S9NQXJ5B2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Aman Gahlot (7S9NQXJ5B2)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -551,7 +559,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "02c4189d-d0ab-4e92-87cb-60033c1ccb8e";
+				PROVISIONING_PROFILE = "1a1b4028-ddf4-43b4-bde2-06903b69386d";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -580,8 +588,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: GOIBIBO IBIBO (8VGTFC7BML)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: GOIBIBO IBIBO (8VGTFC7BML)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Aman Gahlot (7S9NQXJ5B2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Aman Gahlot (7S9NQXJ5B2)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -596,7 +604,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "02c4189d-d0ab-4e92-87cb-60033c1ccb8e";
+				PROVISIONING_PROFILE = "1a1b4028-ddf4-43b4-bde2-06903b69386d";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -609,15 +617,15 @@
 			baseConfigurationReference = 127A67E7926318E9276F3647 /* Pods-usability.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: GOIBIBO IBIBO (8VGTFC7BML)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Aman Gahlot (7S9NQXJ5B2)";
 				DEVELOPMENT_TEAM = Q9B4DS4RM6;
 				INFOPLIST_FILE = usability/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.goibibo.Goibibo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.goibibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "02c4189d-d0ab-4e92-87cb-60033c1ccb8e";
-				PROVISIONING_PROFILE_SPECIFIER = "nishant development goibibo profile";
+				PROVISIONING_PROFILE = "1a1b4028-ddf4-43b4-bde2-06903b69386d";
+				PROVISIONING_PROFILE_SPECIFIER = usabilityLab;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -627,12 +635,12 @@
 			baseConfigurationReference = C2B0DF37E505350AF96822B7 /* Pods-usability.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: GOIBIBO IBIBO (8VGTFC7BML)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Aman Gahlot (7S9NQXJ5B2)";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = usability/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.goibibo.Goibibo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.goibibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

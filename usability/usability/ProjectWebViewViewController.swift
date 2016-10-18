@@ -8,6 +8,8 @@
 
 import UIKit
 import MBProgressHUD
+import Firebase
+import FirebaseAuth
 
 class ProjectWebViewViewController: UIViewController, UIWebViewDelegate, CoachMarkViewControllerDelegate {
    
@@ -17,13 +19,13 @@ class ProjectWebViewViewController: UIViewController, UIWebViewDelegate, CoachMa
     var nextButton = UIBarButtonItem()
     var hasAlreadyLoaded: Bool?
     var shouldShowPreviewInBrowserGuideView: Bool = false
-    
+    var URL = "https://www.google.com"
     
     //MARK:- View Methods
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        loadContentToWebView()
+//        loadContentToWebView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -58,7 +60,7 @@ class ProjectWebViewViewController: UIViewController, UIWebViewDelegate, CoachMa
             
             MBProgressHUD.showAdded(to: self.view, animated: true)
 //            let URL = "https://projects.invisionapp.com/share/3689FL89R#/screens"
-            let URL = "https://projects.invisionapp.com/share/T27R7ZMWX#/screens/176323591"
+//            let URL = "https://projects.invisionapp.com/share/T27R7ZMWX#/screens/176323591"
             let requestURL = NSURL(string: URL)
             let request = NSURLRequest(url: requestURL! as URL)
             projectWebView.loadRequest(request as URLRequest)

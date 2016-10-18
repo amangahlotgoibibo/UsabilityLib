@@ -24,7 +24,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="31z-07-Awf" id="5V6-Rk-Lbw">
-                                            <frame key="frameInset" width="342" height="43"/>
+                                            <frame key="frameInset" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -147,6 +147,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="YPF-IN-a3g"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="projectTableView" destination="2yY-do-Yxg" id="2bN-ux-M3X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

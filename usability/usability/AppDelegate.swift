@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 import UXCam
+import Firebase
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,13 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
 //        UXCam.start(withKey: "42b96e22c4dd82d")
         
         // Override point for customization after application launch.
         UIApplication.shared.isStatusBarHidden = true
         UIApplication.shared.statusBarStyle = .lightContent
+        FIRApp.configure()
+        
 //        application.isStatusBarHidden = true
         return true
     }
