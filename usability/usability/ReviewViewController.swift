@@ -27,11 +27,29 @@ class ReviewViewController: UIViewController, SFSpeechRecognizerDelegate, UIText
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        doInitialConfigurations()
+    }
+
+    //MARK:- Private Methods
+    
+    func doInitialConfigurations() {
+        
+        initializeSpeechRecognizer()
         
         reviewTextField.delegate = self
+//        startRecording()
+//        addSwipeGestureRecogniser()
+    }
+    
+  
+    
+    //MARK:- Speech Recognition Methods
+    
+    func initializeSpeechRecognizer() {
+        
         speechRecognizer?.delegate = self
         micButton.isEnabled = false
-//        enableMic = false
+        //        enableMic = false
         SFSpeechRecognizer.requestAuthorization { (authStatus) in
             
             var isButtonEnabled = false
@@ -56,38 +74,10 @@ class ReviewViewController: UIViewController, SFSpeechRecognizerDelegate, UIText
             
             OperationQueue.main.addOperation {
                 self.micButton.isEnabled = isButtonEnabled
-//                self.enableMic = isButtonEnabled
+                //                self.enableMic = isButtonEnabled
             }
         }
-        
-//        startRecording()
-//        addSwipeGestureRecogniser()
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    @IBAction func actionDoneButtonTapped(_ sender: AnyObject) {
-        
-        if audioEngine.isRunning {
-            audioEngine.stop()
-            recognitionRequest.endAudio()
-//            enableMic = false
-            micButton.isEnabled = false
-        }
-        
-        let alertController  = UIAlertController(title: "", message: "Thank you for testing the app. Your feedback has been submitted", preferredStyle: .alert)
-        let alertAction  = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
-            self.navigationController?.popToRootViewController(animated: true)
-        }
-        alertController.addAction(alertAction)
-        self.present(alertController, animated: true) { 
-        }
-        
-        UXCam.stopApplicationAndUploadData()
     }
     
     func startRecording() {
@@ -165,9 +155,15 @@ class ReviewViewController: UIViewController, SFSpeechRecognizerDelegate, UIText
     }
     
     
+    //MARK:- TextView Delegate Methods
+    
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         self.textFieldPlaceHolderLabel.isHidden = true
         return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.reviewTextField.resignFirstResponder()
     }
     
     
@@ -191,10 +187,27 @@ class ReviewViewController: UIViewController, SFSpeechRecognizerDelegate, UIText
             }
         }
     }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.reviewTextField.resignFirstResponder()
-    }
+
     
+    @IBAction func actionDoneButtonTapped(_ sender: AnyObject) {
+        
+        if audioEngine.isRunning {
+            audioEngine.stop()
+            recognitionRequest.endAudio()
+            //            enableMic = false
+            micButton.isEnabled = false
+        }
+        
+        let alertController  = UIAlertController(title: "", message: "Thank you for testing the app. Your feedback has been submitted", preferredStyle: .alert)
+        let alertAction  = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        alertController.addAction(alertAction)
+        self.present(alertController, animated: true) {
+        }
+        
+        UXCam.stopApplicationAndUploadData()
+    }
     
     
 }

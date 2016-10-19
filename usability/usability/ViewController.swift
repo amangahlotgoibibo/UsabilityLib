@@ -24,7 +24,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
       
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadProjectTableViewWithDataFromNotification), name: NSNotification.Name(rawValue: "ProjectDataReloaded"), object: nil)
+        let notif = NSNotification.Name(rawValue: "ProjectDataReloaded")
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadProjectTableViewWithDataFromNotification), name: notif, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(reloadProjectTableViewWithDataFromNotification), name: NSNotification.Name(rawValue: "ProjectDataReloaded"), object: nil)
         
     }
     
